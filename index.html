@@ -1,0 +1,137 @@
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <script src="javascript/lib/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- Font Awesome CSS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"
+        integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+        crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>IMDB</title>
+    <link rel="icon" type="image/x-icon" href="images/imdb.png">
+
+</head>
+
+<body>
+
+    <div class="container" style="padding-top:15%">
+
+        <section>
+            <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+                <a class="navbar-brand"><img src="images/imdb1.png"></a>
+                <button class="navbar-toggler" style="color:white" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" style="color:white"></span>
+                </button>
+
+                <div class="collapse navbar-collapse row" id="navbarSupportedContent">
+
+                    <div class="col-12">
+                        <form class="form-inline my-2 my-lg-0 ">
+                            <input id='searchText' class="form-control mr-sm-2 col-md-6 col-lg-6 " aria-label="Search" type="search" placeholder="Find Movies, TV Shows, Celebraties and More...">
+
+                            <input id='year' class="form-control mr-sm-2 col-md-6 col-lg-1 " type="search" style="width:80px;margin-right: 6px"   placeholder="Year">
+
+                            <button class="dropdown">
+                                <a id='btnName' class="dropdown-toggle btn-sm" id="Dropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Title
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" onclick="setSearchType('i')">IMDB Id</a>
+                                    <a class="dropdown-item" onclick="setSearchType('t')">Title</a>
+                                    <a class="dropdown-item" onclick="setSearchType('movie')">Movie</a>
+                                    <a class="dropdown-item" onclick="setSearchType('series')">Series</a>
+                                </div>
+                            </button>
+
+                            <button class="btn btn-outline-warning my-2 my-sm-0" style="margin-left: 7px" type="button"
+                                onclick="search()">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+
+
+        </section>
+
+        <section id="section1" style="background:white;padding:20px">
+            <div id="results" class="col-lg-8 col-md-8 col-sm-12">
+                <div id="head">
+                </div>
+                <div id="title">
+                </div>
+            </div>
+        </section>
+
+        <section id="section2" style="background:white;">
+            <div class="row no-gutters">
+                <div id="header" class="col-lg-8 col-md-8 col-sm-12" style="background:#333;padding:20px">
+                    <div>
+                        <p> FULL CAST AND CREW <span></span> USER REVIEWS <span></span> TRIVIA <span></span> IMDbPro</p>
+                    </div>
+                    <div class="headLine">
+                        <h1 id="headTitle">Singham</h1>
+                        <p id="headYear">(2011)</p>
+                        <br>
+                        <h6 id="base1"> 12A </h6> <span></span><h6 id="base2">2h 30min </h6> <span></span> <h6 id="base3">Action, Drama </h6> 
+                        <span></span><h6 id="base4">22 July 2011 (UK)</h6>
+                    </div>
+                </div>
+                <div class="info col-lg-8 col-md-8 col-sm-12" style="background: lightgray;margin-right: 0">
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img id="poster" src="images/singham.jpg" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <p class="card-text" id="plot">A truly honest police officer is transferred to a town controlled by a gangster he has humiliated.
+                                         The gangster believes he can use good power to bring down this officer who made him look foolish and weak.</p>
+                                    
+                                    <h6>Director : </h6><p id="director">Rohit Shetty</p><br>
+                                    <h6>Writers : </h6><p id="writer"> Hari (original story), Yunus Sajawal (screenplay)</p><br>
+                                    <h6>Stars : </h6><p id="cast">Ajay Devgn, Kajal Aggarwal, Prakash Raj </p><br>
+
+                                    <button class="btn btn-primary" style="margin: 20px;margin-left: 0;padding-left: 25px;padding-right: 25px" >Add To Watchlist</button>
+                                    <br>
+                                    
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+               
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
